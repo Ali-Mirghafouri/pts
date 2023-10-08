@@ -1,0 +1,33 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="flex-col">
+  <mat-form-field>
+    <input matInput placeholder="Email" formControlName="email" />
+    <mat-error *ngIf="loginForm.get('email')?.hasError('required')"
+      >Email is required</mat-error
+    >
+    <mat-error *ngIf="loginForm.get('email')?.hasError('email')"
+      >Enter a valid email address</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      type="password"
+      placeholder="Password"
+      formControlName="password"
+    />
+    <mat-error *ngIf="loginForm.get('password')?.hasError('required')"
+      >Password is required</mat-error
+    >
+  </mat-form-field>
+
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    class="mt16"
+    [disabled]="!loginForm.valid"
+  >
+    Login
+  </button>
+</form>
