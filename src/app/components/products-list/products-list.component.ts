@@ -35,7 +35,7 @@ export class ProductsListComponent implements OnInit {
         const updated = products.map((product, index) => {
           return {
             ...product,
-            bgImg: cardsImg[index % 7],
+            bgImg: product.bgImg,
             offers: Array.isArray(product.offers)? product.offers :[product.offers],
             tags: Array.isArray(product.tags)? product.tags :[product.tags]
           };
